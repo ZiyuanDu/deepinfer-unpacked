@@ -33,7 +33,7 @@
 
 | 编码 | 模块 | 定位 |
 | --- | --- | --- |
-| M00 | 项目与流程 | 仓库结构、issue/PR、标签与评审 |
+| M00 | 项目与流程 | DeepInfer 的概念与设计哲学 |
 | M01 | 前置理论 | Attention、MoE、KV cache、量化、推理指标 |
 | M02 | 前置代码 | Python/PyTorch、CUDA、TileLang、C++、NCCL |
 | M03 | 调度与执行 | 请求生命周期、batching、prefill/decode、异步执行 |
