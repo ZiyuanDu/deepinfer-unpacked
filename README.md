@@ -59,20 +59,6 @@
 
 维护者可以进一步阅读[架构与启动方案](ARCHITECTURE.md)和[维护分工](GOVERNANCE.md)。
 
-## 如何阅读
-
-首次阅读建议沿一条请求主线展开。
-
-1. 阅读[范围与系统地图](docs/start/scope.md)，认识模块与研究边界。
-2. 阅读[一次请求的生命周期](docs/chapters/request-lifecycle.md)，建立整体执行过程。
-3. 阅读[请求与序列表示](docs/chapters/request-representation.md)，区分关键对象和字段。
-4. 阅读[引擎迭代与 Worker](docs/chapters/engine-step.md)，追踪一轮执行中的交接。
-5. 阅读[输出生命周期](docs/chapters/output-lifetime.md)，理解资源归属和跨轮使用的约束。
-
-遇到陌生概念时，按章节链接补充前置知识。已有基础的读者可以从[源码索引](docs/reference/source-map.md)进入专题，再核对对应章节的前置要求。
-
-阅读文档和多数源码研究无需运行完整 DeepInfer。没有目标硬件，也可以参与调用追踪、手工推演、CPU 参考实现、已有运行记录分析和文档试读。
-
 
 ## 当前进展
 
