@@ -69,6 +69,8 @@
 
 项目处于启动阶段，首阶段目标是完成对于 DeepInfer 架构的完整拆解。
 
+可执行示例见 [tutorials](tutorials/README.md)。
+
 ## 杜子源有话说
 
 
