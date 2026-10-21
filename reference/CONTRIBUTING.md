@@ -2,13 +2,6 @@
 
 本仓库围绕 DeepInfer 开展源码研读、文档整理和实验补充。DeepInfer 本身的 bug 请提交至 [上游仓库](https://github.com/deepseek-ai/DeepInfer/issues)。
 
-## 学习与参与
-
-- 学习 DeepInfer：从 [README](README.md) 开始。
-- 提交 issue：见 [Issue 规范](docs/reference/project/issues.md)。
-- 提交 PR：见 [PR 规范](docs/reference/project/pr.md)。
-- 查看模块：见 [模块表](docs/reference/modules.md)。
-
 ## 基本规则
 
 - 一个 issue 只讨论一个问题。

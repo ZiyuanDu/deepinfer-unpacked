@@ -66,7 +66,7 @@ experiment(M08-T03): add SM100 benchmark report
 
 ## Topic 文件结构
 
-新增 Topic 按 [Topic 模板](../../_templates/topic.md) 编写。至少包含：
+新增 Topic 按 [Topic 模板](../../docs/_templates/topic.md) 编写。至少包含：
 
 - 学习目标
 - 前置知识

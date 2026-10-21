@@ -16,4 +16,3 @@
 | M11 | 外置组件（external） | DeepInfer 依赖的外部算子/库最小闭包 | `vendor/`；各 vendor 上游仓库 |
 | M12 | 工程与实践（platform） | 构建、平台、部署与模型适配 | `build.sh`；`scripts/`；`platform.py`；`deep_cluster/hardware/`；`topology/`；`examples/`；`requirements*.txt` |
 
-> 本仓库的项目与流程见 [project/](project/)。
