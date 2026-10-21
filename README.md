@@ -2,7 +2,7 @@
 
 这是一个共同建设的 [DeepInfer](https://github.com/deepseek-ai/DeepInfer) 源码研读项目。
 
-我们希望汇集数千名学习者和开发者，共同梳理 DeepInfer 的系统架构，将研究成果整理成一套有清晰前置知识、经过同行评审、可以持续维护的中英文教材。
+我们希望汇集数千名学习者和开发者，共同梳理 DeepInfer 的系统架构。我们将 Deepseek 研究成果整理成一套有清晰前置知识、可以持续维护的中英文教程。
 
 ## 从这里开始
 
@@ -10,10 +10,10 @@
 
 | **角色** | 你想做什么 | 推荐入口 |
 | --- | --- | --- |
-| **阅读者** | 新手入门，从零开始学习 | [阅读路线](docs/start/reading-path.md) |
+| **阅读者** | 新手入门，从零开始学习 | [阅读路线](docs/start/01-reading-path.md) |
 | **提问者** | 针对 DeepInfer 中的某项技术提出清晰明确的问题或提交改进 | [参与方式](CONTRIBUTING.md) |
-| **解答者** | 回答提问者提出的问题|[参与方式]()|
-| **实验者** |针对 DeepInfer 的某项功能进行性能测试，或者在 DeepInfer 的基础上适配更多模型架构|[参与方式]()|
+| **解答者** | 回答提问者提出的问题|[参与方式](CONTRIBUTING.md)|
+| **实验者** |针对 DeepInfer 的某项功能进行性能测试，或者在 DeepInfer 的基础上适配更多模型架构|[参与方式](CONTRIBUTING.md)|
 
 
 ## 探究问题
@@ -24,19 +24,81 @@
 | --- | --- |
 | 前置理论知识 | 补充 DeepInfer 需要的最小前置知识 |
 | 前置代码知识 | 补充 DeepInfer 需要的最小动手能力 |
-| DeepInfer 架构| 掌握其系统架构与请求主线，包括但不限于调度与执行、缓存与资源管理、模型与算子、并行与通信、高级机制、验证与性能分析等 |
-| DeepInfer 代码补充| 根据当前 DeepInfer 架构，补充一至两个合理的开源框架加入其中 |
+| DeepInfer 架构| 掌握其系统架构与请求主线，包括但不限于调度与执行、缓存与资源管理、模型结构、算子与内核、多模态与视觉、并行与通信、高级机制、验证与性能分析等 |
+| DeepInfer 代码补充| 根据当前 DeepInfer 架构，补充一至两个合理的开源模型加入其中 |
 | 外置知识 |掌握 DeepInfer 所使用的 FlashMLA、DeepGEMM、DeepEP、DeepSelect、TileKernels、TileLang 等最小闭包|
 
 
-## 知识如何组织
+## 模块划分
+
+| 编码 | 模块 | 定位 |
+| --- | --- | --- |
+| M00 | 项目与流程 | 仓库结构、issue/PR、标签与评审 |
+| M01 | 前置理论 | Attention、MoE、KV cache、量化、推理指标 |
+| M02 | 前置代码 | Python/PyTorch、CUDA、TileLang、C++、NCCL |
+| M03 | 调度与执行 | 请求生命周期、batching、prefill/decode、异步执行 |
+| M04 | 缓存与资源管理 | KV cache、block、显存、SWA、shared memory |
+| M05 | 模型结构 | 模型加载、DeepSeek 模型、decoder、层定义 |
+| M06 | 算子与内核 | TileLang、CUDA/C++/Ascend kernel、融合算子 |
+| M07 | 多模态与视觉 | 视觉编码、图像预处理、multimodal tokens |
+| M08 | 并行与通信 | TP/DP/EP/CP、DeepEP、EPLB、拓扑 |
+| M09 | 高级机制 | 结构化输出、投机/验证、确定性、batch invariance |
+| M10 | 验证与性能 | AIME/GPQA/HLE、benchmark、PPL、profiling |
+| M11 | 外置组件 | FlashMLA、DeepGEMM、DeepEP、DeepSelect、TileLang |
+| M12 | 工程与实践 | 构建、NVIDIA/Ascend、部署、模型适配 |
+
+详细源码映射见 [模块表](docs/reference/modules.md)。
+
+
+## Issue 示例
+
+> 能一句话说清问题选 Q&A；知道哪里不对但还说不清选 Confusion。
+
+### 示例一：环境配置
+
+
+**错误示例**
+
+> 8卡H100怎么配DeepInfer，急
+
+**正确示例**
+
+标题：`[Q&A] M12 如何在 8 卡 H100 上配置 DeepInfer？`
+
+- **类型**：Q&A
+- **模块**：M12 工程与实践
+- **问题定义**：如何在 8 卡 H100 上配置 DeepInfer？需要说明驱动、CUDA、依赖和启动步骤；能跑通 `examples/offline_inference.py` 即算解决。
+- **位置与版本**：`README.md` 的构建章节、`build.sh`；commit `9bd9cf2`
+- **背景与已尝试**：已阅读 README 的 build 步骤，但尚未成功在 8 卡H100 上跑通现有模块。
+
+
+### 示例二：概念困惑
+
+**错误示例**
+
+> 各位大佬，我不是很清楚 ZOS 的异步调度机制是什么，求解释
+
+
+**正确示例**
+
+标题：`[Confusion] M03 ZOS 的异步调度机制是什么？`
+
+- **类型**：Confusion
+- **模块**：M03 调度与执行
+- **问题定义**：ZOS 的异步调度机制是什么？它在请求生命周期中负责哪一段？
+- **位置与版本**：`csrc/engine/zos.cpp`；commit `9bd9cf2`
+- **背景与已尝试**：在源码中看到 `zos.cpp` 和 `schedule_mtp_varlen.py`，目前理解为一种异步调度机制，不确定它与 continuous batching 的关系。
+
+
+
+## 组织知识
 
 本项目核心采用文档驱动的协作方式。将明确各章节的学习目标和前置知识，再拆分研究问题。
 
 核心通过 issues 模块进行管理，
-
-- 2026-10-21 管理方式为：label 分为四个模块，Q&A、Confusion、Enhancement、Experiment。分别对应提问、疑惑、补充以及实验。所有的模块都需要通过提交 PR 的方式进行参与。
-
+|时间|管理方式|
+|---|---|
+|20261021|Label 分为 4 种类型（Q&A、Confusion、Enhancement、Experiment），所有内容通过 issue/PR 参与|
 
 
 
@@ -44,29 +106,18 @@
 
 | 路径 | 内容 |
 | --- | --- |
-| [`docs/start/`](docs/start/) | 项目范围、阅读路线与章节大纲 |
-| [`docs/prerequisites/`](docs/prerequisites/) | 张量、推理、生命周期、分布式和异步执行等基础知识卡 |
-| [`docs/chapters/`](docs/chapters/) | 按知识依赖组织的正文章节与试读稿 |
-| [`docs/reference/`](docs/reference/) | 源码、术语与外部库索引 |
-| [`docs/community/`](docs/community/) | 参与方式与同行评审规范 |
-| [`curriculum/`](curriculum/) | 章节目标、前置关系和问题编号 |
-| [`labs/`](labs/) | 概念演示与最小参考实现 |
-| [`evidence/`](evidence/) | 关键结论的证据说明与运行记录 |
-| [`templates/`](templates/) | 章节、评审记录与证据模板 |
-| [`issues/seed-tasks.md`](issues/seed-tasks.md) | 首批研究问题草案 |
-| [`upstream.lock.yaml`](upstream.lock.yaml) | 研读使用的上游基准版本与依赖记录 |
-| [`.github/`](.github/) | Issue 表单、PR 模板和基础检查流程 |
+| [docs/](docs/) | 项目核心章节 |
+|[tutorials](tutorials/)|项目代码教学|
 
-维护者可以进一步阅读[架构与启动方案](ARCHITECTURE.md)和[维护分工](GOVERNANCE.md)。
+
 
 
 ## 当前进展
 
-项目处于启动阶段，首阶段目标是完成对于 DeepInfer 架构的完整专题。
+项目处于启动阶段，首阶段目标是完成对于 DeepInfer 架构的完整拆解。
 
 ## 杜子源有话说
 
-> 
 
 期待各位的参与！
 

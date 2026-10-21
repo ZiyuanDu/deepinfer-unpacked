@@ -1,0 +1,79 @@
+name: Issue
+description: 提交一个 DeepInfer 学习、文档或实验问题
+labels: ["status:needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交前请先搜索现有 issue 和文档。一个 issue 只解决一个问题。
+        DeepInfer 上游 bug 请提交到：https://github.com/deepseek-ai/DeepInfer/issues
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 类型
+      options:
+        - Q&A
+        - Confusion
+        - Enhancement
+        - Experiment
+    validations:
+      required: true
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: 模块
+      options:
+        - M00 项目与流程
+        - M01 前置理论
+        - M02 前置代码
+        - M03 调度与执行
+        - M04 缓存与资源管理
+        - M05 模型结构
+        - M06 算子与内核
+        - M07 多模态与视觉
+        - M08 并行与通信
+        - M09 高级机制
+        - M10 验证与性能
+        - M11 外置组件
+        - M12 工程与实践
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition
+    attributes:
+      label: 问题定义
+      description: 一句话说清楚要问什么或改什么，以及什么算解决
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: 位置与版本
+      description: 文件:行号 / 文档链接 / commit SHA；概念问题可写 N/A
+      placeholder: deepinfer/.../scheduler.py:120；commit 9bd9cf2；或 N/A
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 背景与已尝试
+      description: 读过什么、搜过什么、为什么现有资料不够
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前检查
+      options:
+        - label: 我已搜索过现有 issue 和文档
+          required: true
+        - label: 我确认这不是 DeepInfer 上游 bug
+          required: true
+        - label: 我理解 issue 是公开的，且不包含敏感信息
+          required: true
