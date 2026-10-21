@@ -14,9 +14,9 @@
 | **角色** | 你想做什么 | 推荐入口 |
 | --- | --- | --- |
 | **阅读者** | 新手入门，从零开始学习 | [阅读路线](docs/start/01-reading-path.md) |
-| **提问者** | 针对 DeepInfer 中的某项技术提出清晰明确的问题或提交改进 | [参与方式](CONTRIBUTING.md) |
-| **解答者** | 回答提问者提出的问题 | [参与方式](CONTRIBUTING.md) |
-| **实验者** | 针对 DeepInfer 的某项功能进行性能测试，或者在 DeepInfer 的基础上适配更多模型架构 | [参与方式](CONTRIBUTING.md) |
+| **提问者** | 针对 DeepInfer 中的某项技术提出清晰明确的问题或提交改进 | [参与方式](./reference/README.md) |
+| **解答者** | 回答提问者提出的问题 | [参与方式](./reference/README.md) |
+| **实验者** | 针对 DeepInfer 的某项功能进行性能测试，或者在 DeepInfer 的基础上适配更多模型架构 | [参与方式](./reference/README.md) |
 
 
 ## 探究问题
