@@ -1,11 +1,12 @@
 name: Issue
-description: 提交一个 DeepInfer 学习、文档或实验问题
+description: 提交一个 DeepInfer 学习、文档、实验或项目流程问题
 labels: ["status:needs-triage"]
 body:
   - type: markdown
     attributes:
       value: |
         提交前请先搜索现有 issue 和文档。一个 issue 只解决一个问题。
+        DeepInfer 技术问题请选择 M00–M12；本仓库流程或文档问题请选择 R00。
         DeepInfer 上游 bug 请提交到：https://github.com/deepseek-ai/DeepInfer/issues
 
   - type: dropdown
@@ -25,7 +26,7 @@ body:
     attributes:
       label: 模块
       options:
-        - M00 项目与流程
+        - M00 整体架构
         - M01 前置理论
         - M02 前置代码
         - M03 调度与执行
@@ -38,6 +39,7 @@ body:
         - M10 验证与性能
         - M11 外置组件
         - M12 工程与实践
+        - R00 项目与流程（参考）
     validations:
       required: true
 

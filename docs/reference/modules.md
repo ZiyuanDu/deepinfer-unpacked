@@ -2,7 +2,7 @@
 
 | 编码 | 模块 | 定位 | 主要源码/产物 |
 | --- | --- | --- | --- |
-| M00 | 项目与流程（project） | 本仓库自身的结构、流程与规范 | `CONTRIBUTING.md`、`docs/contribute/` |
+| M00 | 整体架构（overview） | DeepInfer 的目标、分层、请求主线与模块关系 | `docs/chapters/00-overview/`；上游 README；`entrypoints/`、`engine/`、`worker/`、`model_executor/`、`csrc/`、`deep_cluster/` |
 | M01 | 前置理论（prereq-theory） | 理解 DeepInfer 的最小理论 | 前置章节；术语表 |
 | M02 | 前置代码（prereq-code） | 读懂和改动 DeepInfer 的最小工程能力 | 前置教程；最小可运行示例 |
 | M03 | 调度与执行（scheduling） | 请求从入口到执行的主线 | `entrypoints/`；`engine/`；`worker/`；`csrc/engine/` |
@@ -15,3 +15,5 @@
 | M10 | 验证与性能（eval） | 正确性、回归、基准与 profiling | `eval/`；`examples/benchmark.py`；`examples/sweep/`；`tests/`；`graph_timer` |
 | M11 | 外置组件（external） | DeepInfer 依赖的外部算子/库最小闭包 | `vendor/`；各 vendor 上游仓库 |
 | M12 | 工程与实践（platform） | 构建、平台、部署与模型适配 | `build.sh`；`scripts/`；`platform.py`；`deep_cluster/hardware/`；`topology/`；`examples/`；`requirements*.txt` |
+
+> 本仓库的项目与流程见 [project/](project/)。
