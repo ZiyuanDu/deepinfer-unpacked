@@ -63,6 +63,7 @@
 | `reference/` | 本项目流程 |
 | `docs/_templates/` | 文档模板 |
 | `tutorials/` | 可执行教程与实验 |
+| `tutorials/ascend/` | Ascend 系列教程 |
 
 
 ## 当前进展

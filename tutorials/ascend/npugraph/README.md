@@ -1,4 +1,10 @@
-# M12 · Ascend NPUGraph 静态形状分桶与安全重放
+# NPUGraph
+
+> Ascend 系列 · M12 工程与实践 · 进阶
+>
+> 静态形状分桶与安全重放
+
+[返回 Ascend 系列](../README.md) · [返回可执行教程](../../README.md)
 
 本教程用一个最小示例说明：图捕获如何减少设备任务下发开销，以及 LLM Decode 面对动态 Batch 和 KV 长度时，为什么需要固定 shape、固定地址和形状分桶（shape bucketing）。
 
@@ -122,7 +128,7 @@ static_input = dynamic_input
 CPU 上验证规划逻辑：
 
 ```bash
-cd tutorials/ascend-npugraph-static-buckets
+cd tutorials/ascend/npugraph
 python -m unittest -v test_bucket_planner.py
 ```
 
