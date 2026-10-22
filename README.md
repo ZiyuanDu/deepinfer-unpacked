@@ -50,7 +50,7 @@
 | M11 | 外置组件 | FlashMLA、DeepGEMM、DeepEP、DeepSelect、TileLang |
 | M12 | 工程与实践 | 构建、NVIDIA/Ascend、部署、模型适配 |
 
-详细源码映射见 [模块表](docs/reference/modules.md)。
+详细源码映射见 [模块表](reference/MODULES.md)。
 
 
 
@@ -60,7 +60,7 @@
 | --- | --- |
 | `docs/start/` | 上手与入门 |
 | `docs/chapters/` | DeepInfer 教程正文 |
-| `docs/reference/` | 本项目流程 |
+| `reference/` | 本项目流程 |
 | `docs/_templates/` | 文档模板 |
 | `tutorials/` | 可执行教程与实验 |
 
