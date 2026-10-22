@@ -13,4 +13,4 @@
 - 请勿公开报告安全漏洞。
 - 请勿发表针对个人的攻击、骚扰或与项目无关的敏感内容。
 
-详细规范见 [项目与流程](docs/reference/project/README.md)。
+详细规范见 [项目与流程](project/README.md)。
